@@ -4,7 +4,7 @@ import type * as prismic from '@prismicio/client';
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
-type HomepageDocumentDataSlicesSlice = never;
+type HomepageDocumentDataSlicesSlice = WeloveweblinkSlice;
 
 /**
  * Content for Homepage documents
@@ -69,7 +69,178 @@ export type HomepageDocument<Lang extends string = string> = prismic.PrismicDocu
 	Lang
 >;
 
-export type AllDocumentTypes = HomepageDocument;
+type OverviewDocumentDataSlicesSlice = SpeakersSlice | WorkshopsSlice;
+
+/**
+ * Content for overview documents
+ */
+interface OverviewDocumentData {
+	/**
+	 * Slice Zone field in *overview*
+	 *
+	 * - **Field Type**: Slice Zone
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: overview.slices[]
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/field#slices
+	 */
+	slices: prismic.SliceZone<OverviewDocumentDataSlicesSlice>
+	/**
+	 * Meta Description field in *overview*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: A brief summary of the page
+	 * - **API ID Path**: overview.meta_description
+	 * - **Tab**: SEO & Metadata
+	 * - **Documentation**: https://prismic.io/docs/field#key-text
+	 */;
+	meta_description: prismic.KeyTextField;
+
+	/**
+	 * Meta Image field in *overview*
+	 *
+	 * - **Field Type**: Image
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: overview.meta_image
+	 * - **Tab**: SEO & Metadata
+	 * - **Documentation**: https://prismic.io/docs/field#image
+	 */
+	meta_image: prismic.ImageField<never>;
+
+	/**
+	 * Meta Title field in *overview*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: A title of the page used for social media and search engines
+	 * - **API ID Path**: overview.meta_title
+	 * - **Tab**: SEO & Metadata
+	 * - **Documentation**: https://prismic.io/docs/field#key-text
+	 */
+	meta_title: prismic.KeyTextField;
+}
+
+/**
+ * overview document from Prismic
+ *
+ * - **API ID**: `overview`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type OverviewDocument<Lang extends string = string> = prismic.PrismicDocumentWithUID<
+	Simplify<OverviewDocumentData>,
+	'overview',
+	Lang
+>;
+
+export type AllDocumentTypes = HomepageDocument | OverviewDocument;
+
+/**
+ * Default variation for Speakers Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type SpeakersSliceDefault = prismic.SharedSliceVariation<
+	'default',
+	Record<string, never>,
+	never
+>;
+
+/**
+ * Slice variation for *Speakers*
+ */
+type SpeakersSliceVariation = SpeakersSliceDefault;
+
+/**
+ * Speakers Shared Slice
+ *
+ * - **API ID**: `speakers`
+ * - **Description**: Speakers
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type SpeakersSlice = prismic.SharedSlice<'speakers', SpeakersSliceVariation>;
+
+/**
+ * Primary content in *Weloveweblink → Items*
+ */
+export interface WeloveweblinkSliceDefaultItem {
+	/**
+	 * Schoolyear field in *Weloveweblink → Items*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: weloveweblink.items[].schoolyear
+	 * - **Documentation**: https://prismic.io/docs/field#key-text
+	 */
+	schoolyear: prismic.KeyTextField;
+
+	/**
+	 * welovewebLink field in *Weloveweblink → Items*
+	 *
+	 * - **Field Type**: Link
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: weloveweblink.items[].weloveweblink
+	 * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+	 */
+	weloveweblink: prismic.LinkField;
+}
+
+/**
+ * Default variation for Weloveweblink Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type WeloveweblinkSliceDefault = prismic.SharedSliceVariation<
+	'default',
+	Record<string, never>,
+	Simplify<WeloveweblinkSliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *Weloveweblink*
+ */
+type WeloveweblinkSliceVariation = WeloveweblinkSliceDefault;
+
+/**
+ * Weloveweblink Shared Slice
+ *
+ * - **API ID**: `weloveweblink`
+ * - **Description**: Weloveweblink
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type WeloveweblinkSlice = prismic.SharedSlice<'weloveweblink', WeloveweblinkSliceVariation>;
+
+/**
+ * Default variation for Workshops Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type WorkshopsSliceDefault = prismic.SharedSliceVariation<
+	'default',
+	Record<string, never>,
+	never
+>;
+
+/**
+ * Slice variation for *Workshops*
+ */
+type WorkshopsSliceVariation = WorkshopsSliceDefault;
+
+/**
+ * Workshops Shared Slice
+ *
+ * - **API ID**: `workshops`
+ * - **Description**: Workshops
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type WorkshopsSlice = prismic.SharedSlice<'workshops', WorkshopsSliceVariation>;
 
 declare module '@prismicio/client' {
 	interface CreateClient {
@@ -84,7 +255,20 @@ declare module '@prismicio/client' {
 			HomepageDocument,
 			HomepageDocumentData,
 			HomepageDocumentDataSlicesSlice,
-			AllDocumentTypes
+			OverviewDocument,
+			OverviewDocumentData,
+			OverviewDocumentDataSlicesSlice,
+			AllDocumentTypes,
+			SpeakersSlice,
+			SpeakersSliceVariation,
+			SpeakersSliceDefault,
+			WeloveweblinkSlice,
+			WeloveweblinkSliceDefaultItem,
+			WeloveweblinkSliceVariation,
+			WeloveweblinkSliceDefault,
+			WorkshopsSlice,
+			WorkshopsSliceVariation,
+			WorkshopsSliceDefault
 		};
 	}
 }

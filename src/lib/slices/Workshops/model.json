@@ -1,0 +1,16 @@
+{
+	"id": "workshops",
+	"type": "SharedSlice",
+	"name": "Workshops",
+	"description": "Workshops",
+	"variations": [
+		{
+			"id": "default",
+			"name": "Default",
+			"docURL": "...",
+			"version": "initial",
+			"description": "Default",
+			"imageUrl": ""
+		}
+	]
+}

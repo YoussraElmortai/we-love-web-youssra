@@ -1,24 +1,26 @@
 {
-	"id": "homepage",
-	"label": "Homepage",
+	"id": "overview",
+	"label": "overview",
 	"format": "page",
-	"repeatable": false,
+	"repeatable": true,
 	"status": true,
 	"json": {
 		"Main": {
 			"uid": {
-				"type": "UID",
 				"config": {
-					"label": "home",
-					"placeholder": ""
-				}
+					"label": "UID"
+				},
+				"type": "UID"
 			},
 			"slices": {
 				"type": "Slices",
 				"fieldset": "Slice Zone",
 				"config": {
 					"choices": {
-						"weloveweblink": {
+						"speakers": {
+							"type": "SharedSlice"
+						},
+						"workshops": {
 							"type": "SharedSlice"
 						}
 					}
