@@ -3,6 +3,34 @@
 		"__TYPE__": "SharedSliceContent",
 		"variation": "default",
 		"primary": {},
-		"items": []
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"workshoptitle",
+						{
+							"__TYPE__": "StructuredTextContent",
+							"value": [
+								{
+									"type": "paragraph",
+									"content": {
+										"text": "Adipisicing sint dolor occaecat voluptate fugiat nulla culpa sunt quis sint culpa. Dolore quis deserunt est elit deserunt officia consectetur voluptate in dolore voluptate nisi mollit."
+									}
+								}
+							]
+						}
+					],
+					[
+						"description",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "whenever",
+							"type": "Text"
+						}
+					]
+				]
+			}
+		]
 	}
 ]

@@ -3,6 +3,44 @@
 		"__TYPE__": "SharedSliceContent",
 		"variation": "default",
 		"primary": {},
-		"items": []
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"speakerimg",
+						{
+							"__TYPE__": "ImageContent",
+							"origin": {
+								"id": "main",
+								"url": "https://images.unsplash.com/photo-1471897488648-5eae4ac6686b",
+								"width": 3560,
+								"height": 5340
+							},
+							"url": "https://images.unsplash.com/photo-1471897488648-5eae4ac6686b",
+							"width": 3560,
+							"height": 5340,
+							"edit": {
+								"zoom": 1,
+								"crop": {
+									"x": 0,
+									"y": 0
+								},
+								"background": "transparent"
+							},
+							"thumbnails": {}
+						}
+					],
+					[
+						"speaker_name",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "chief",
+							"type": "Text"
+						}
+					]
+				]
+			}
+		]
 	}
 ]

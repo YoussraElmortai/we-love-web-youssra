@@ -1,16 +1,34 @@
 {
-	"id": "speakers",
-	"type": "SharedSlice",
-	"name": "Speakers",
-	"description": "Speakers",
-	"variations": [
-		{
-			"id": "default",
-			"name": "Default",
-			"docURL": "...",
-			"version": "initial",
-			"description": "Default",
-			"imageUrl": ""
-		}
-	]
+  "id": "speakers",
+  "type": "SharedSlice",
+  "name": "Speakers",
+  "description": "Speakers",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {},
+      "items": {
+        "speakerimg": {
+          "type": "Image",
+          "config": {
+            "label": "speakerimg",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "speaker_name": {
+          "type": "Text",
+          "config": {
+            "label": "speakername",
+            "placeholder": ""
+          }
+        }
+      }
+    }
+  ]
 }

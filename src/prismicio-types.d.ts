@@ -4,7 +4,7 @@ import type * as prismic from '@prismicio/client';
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
-type HomepageDocumentDataSlicesSlice = WeloveweblinkSlice;
+type HomepageDocumentDataSlicesSlice = never;
 
 /**
  * Content for Homepage documents
@@ -69,72 +69,66 @@ export type HomepageDocument<Lang extends string = string> = prismic.PrismicDocu
 	Lang
 >;
 
-type OverviewDocumentDataSlicesSlice = SpeakersSlice | WorkshopsSlice;
+interface SpeakerDocumentData {}
 
 /**
- * Content for overview documents
- */
-interface OverviewDocumentData {
-	/**
-	 * Slice Zone field in *overview*
-	 *
-	 * - **Field Type**: Slice Zone
-	 * - **Placeholder**: *None*
-	 * - **API ID Path**: overview.slices[]
-	 * - **Tab**: Main
-	 * - **Documentation**: https://prismic.io/docs/field#slices
-	 */
-	slices: prismic.SliceZone<OverviewDocumentDataSlicesSlice>
-	/**
-	 * Meta Description field in *overview*
-	 *
-	 * - **Field Type**: Text
-	 * - **Placeholder**: A brief summary of the page
-	 * - **API ID Path**: overview.meta_description
-	 * - **Tab**: SEO & Metadata
-	 * - **Documentation**: https://prismic.io/docs/field#key-text
-	 */;
-	meta_description: prismic.KeyTextField;
-
-	/**
-	 * Meta Image field in *overview*
-	 *
-	 * - **Field Type**: Image
-	 * - **Placeholder**: *None*
-	 * - **API ID Path**: overview.meta_image
-	 * - **Tab**: SEO & Metadata
-	 * - **Documentation**: https://prismic.io/docs/field#image
-	 */
-	meta_image: prismic.ImageField<never>;
-
-	/**
-	 * Meta Title field in *overview*
-	 *
-	 * - **Field Type**: Text
-	 * - **Placeholder**: A title of the page used for social media and search engines
-	 * - **API ID Path**: overview.meta_title
-	 * - **Tab**: SEO & Metadata
-	 * - **Documentation**: https://prismic.io/docs/field#key-text
-	 */
-	meta_title: prismic.KeyTextField;
-}
-
-/**
- * overview document from Prismic
+ * speaker document from Prismic
  *
- * - **API ID**: `overview`
+ * - **API ID**: `speaker`
  * - **Repeatable**: `true`
  * - **Documentation**: https://prismic.io/docs/custom-types
  *
  * @typeParam Lang - Language API ID of the document.
  */
-export type OverviewDocument<Lang extends string = string> = prismic.PrismicDocumentWithUID<
-	Simplify<OverviewDocumentData>,
-	'overview',
+export type SpeakerDocument<Lang extends string = string> = prismic.PrismicDocumentWithUID<
+	Simplify<SpeakerDocumentData>,
+	'speaker',
 	Lang
 >;
 
-export type AllDocumentTypes = HomepageDocument | OverviewDocument;
+interface WorkshopDocumentData {}
+
+/**
+ * workshop document from Prismic
+ *
+ * - **API ID**: `workshop`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type WorkshopDocument<Lang extends string = string> = prismic.PrismicDocumentWithUID<
+	Simplify<WorkshopDocumentData>,
+	'workshop',
+	Lang
+>;
+
+export type AllDocumentTypes = HomepageDocument | SpeakerDocument | WorkshopDocument;
+
+/**
+ * Primary content in *Speakers → Items*
+ */
+export interface SpeakersSliceDefaultItem {
+	/**
+	 * speakerimg field in *Speakers → Items*
+	 *
+	 * - **Field Type**: Image
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: speakers.items[].speakerimg
+	 * - **Documentation**: https://prismic.io/docs/field#image
+	 */
+	speakerimg: prismic.ImageField<never>;
+
+	/**
+	 * speakername field in *Speakers → Items*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: speakers.items[].speaker_name
+	 * - **Documentation**: https://prismic.io/docs/field#key-text
+	 */
+	speaker_name: prismic.KeyTextField;
+}
 
 /**
  * Default variation for Speakers Slice
@@ -146,7 +140,7 @@ export type AllDocumentTypes = HomepageDocument | OverviewDocument;
 export type SpeakersSliceDefault = prismic.SharedSliceVariation<
 	'default',
 	Record<string, never>,
-	never
+	Simplify<SpeakersSliceDefaultItem>
 >;
 
 /**
@@ -164,56 +158,29 @@ type SpeakersSliceVariation = SpeakersSliceDefault;
 export type SpeakersSlice = prismic.SharedSlice<'speakers', SpeakersSliceVariation>;
 
 /**
- * Primary content in *Weloveweblink → Items*
+ * Primary content in *Workshops → Items*
  */
-export interface WeloveweblinkSliceDefaultItem {
+export interface WorkshopsSliceDefaultItem {
 	/**
-	 * Schoolyear field in *Weloveweblink → Items*
+	 * workshoptitle field in *Workshops → Items*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: workshops.items[].workshoptitle
+	 * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+	 */
+	workshoptitle: prismic.RichTextField;
+
+	/**
+	 * description field in *Workshops → Items*
 	 *
 	 * - **Field Type**: Text
 	 * - **Placeholder**: *None*
-	 * - **API ID Path**: weloveweblink.items[].schoolyear
+	 * - **API ID Path**: workshops.items[].description
 	 * - **Documentation**: https://prismic.io/docs/field#key-text
 	 */
-	schoolyear: prismic.KeyTextField;
-
-	/**
-	 * welovewebLink field in *Weloveweblink → Items*
-	 *
-	 * - **Field Type**: Link
-	 * - **Placeholder**: *None*
-	 * - **API ID Path**: weloveweblink.items[].weloveweblink
-	 * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-	 */
-	weloveweblink: prismic.LinkField;
+	description: prismic.KeyTextField;
 }
-
-/**
- * Default variation for Weloveweblink Slice
- *
- * - **API ID**: `default`
- * - **Description**: Default
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type WeloveweblinkSliceDefault = prismic.SharedSliceVariation<
-	'default',
-	Record<string, never>,
-	Simplify<WeloveweblinkSliceDefaultItem>
->;
-
-/**
- * Slice variation for *Weloveweblink*
- */
-type WeloveweblinkSliceVariation = WeloveweblinkSliceDefault;
-
-/**
- * Weloveweblink Shared Slice
- *
- * - **API ID**: `weloveweblink`
- * - **Description**: Weloveweblink
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type WeloveweblinkSlice = prismic.SharedSlice<'weloveweblink', WeloveweblinkSliceVariation>;
 
 /**
  * Default variation for Workshops Slice
@@ -225,7 +192,7 @@ export type WeloveweblinkSlice = prismic.SharedSlice<'weloveweblink', Welovewebl
 export type WorkshopsSliceDefault = prismic.SharedSliceVariation<
 	'default',
 	Record<string, never>,
-	never
+	Simplify<WorkshopsSliceDefaultItem>
 >;
 
 /**
@@ -255,18 +222,17 @@ declare module '@prismicio/client' {
 			HomepageDocument,
 			HomepageDocumentData,
 			HomepageDocumentDataSlicesSlice,
-			OverviewDocument,
-			OverviewDocumentData,
-			OverviewDocumentDataSlicesSlice,
+			SpeakerDocument,
+			SpeakerDocumentData,
+			WorkshopDocument,
+			WorkshopDocumentData,
 			AllDocumentTypes,
 			SpeakersSlice,
+			SpeakersSliceDefaultItem,
 			SpeakersSliceVariation,
 			SpeakersSliceDefault,
-			WeloveweblinkSlice,
-			WeloveweblinkSliceDefaultItem,
-			WeloveweblinkSliceVariation,
-			WeloveweblinkSliceDefault,
 			WorkshopsSlice,
+			WorkshopsSliceDefaultItem,
 			WorkshopsSliceVariation,
 			WorkshopsSliceDefault
 		};
