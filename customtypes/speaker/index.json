@@ -11,6 +11,39 @@
 					"label": "UID"
 				},
 				"type": "UID"
+			},
+			"speakerimg": {
+				"type": "Image",
+				"config": {
+					"label": "speakerimg",
+					"constraint": {},
+					"thumbnails": []
+				}
+			},
+			"speaker_name": {
+				"type": "Text",
+				"config": {
+					"label": "speaker name",
+					"placeholder": ""
+				}
+			},
+			"description": {
+				"type": "Text",
+				"config": {
+					"label": "description",
+					"placeholder": ""
+				}
+			},
+			"slices": {
+				"type": "Slices",
+				"fieldset": "Slice Zone",
+				"config": {
+					"choices": {
+						"workshops": {
+							"type": "SharedSlice"
+						}
+					}
+				}
 			}
 		}
 	}

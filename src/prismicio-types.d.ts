@@ -69,7 +69,56 @@ export type HomepageDocument<Lang extends string = string> = prismic.PrismicDocu
 	Lang
 >;
 
-interface SpeakerDocumentData {}
+type SpeakerDocumentDataSlicesSlice = WorkshopsSlice;
+
+/**
+ * Content for speaker documents
+ */
+interface SpeakerDocumentData {
+	/**
+	 * speakerimg field in *speaker*
+	 *
+	 * - **Field Type**: Image
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: speaker.speakerimg
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/field#image
+	 */
+	speakerimg: prismic.ImageField<never>;
+
+	/**
+	 * speaker name field in *speaker*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: speaker.speaker_name
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/field#key-text
+	 */
+	speaker_name: prismic.KeyTextField;
+
+	/**
+	 * description field in *speaker*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: speaker.description
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/field#key-text
+	 */
+	description: prismic.KeyTextField;
+
+	/**
+	 * Slice Zone field in *speaker*
+	 *
+	 * - **Field Type**: Slice Zone
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: speaker.slices[]
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/field#slices
+	 */
+	slices: prismic.SliceZone<SpeakerDocumentDataSlicesSlice>;
+}
 
 /**
  * speaker document from Prismic
@@ -128,6 +177,26 @@ export interface SpeakersSliceDefaultItem {
 	 * - **Documentation**: https://prismic.io/docs/field#key-text
 	 */
 	speaker_name: prismic.KeyTextField;
+
+	/**
+	 * linkspeaker field in *Speakers → Items*
+	 *
+	 * - **Field Type**: Content Relationship
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: speakers.items[].linkspeaker
+	 * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+	 */
+	linkspeaker: prismic.ContentRelationshipField;
+
+	/**
+	 * linkworkshop field in *Speakers → Items*
+	 *
+	 * - **Field Type**: Content Relationship
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: speakers.items[].linkworkshop
+	 * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+	 */
+	linkworkshop: prismic.ContentRelationshipField;
 }
 
 /**
@@ -180,6 +249,16 @@ export interface WorkshopsSliceDefaultItem {
 	 * - **Documentation**: https://prismic.io/docs/field#key-text
 	 */
 	description: prismic.KeyTextField;
+
+	/**
+	 * linkworkshop field in *Workshops → Items*
+	 *
+	 * - **Field Type**: Content Relationship
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: workshops.items[].linkworkshop
+	 * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+	 */
+	linkworkshop: prismic.ContentRelationshipField;
 }
 
 /**
@@ -224,6 +303,7 @@ declare module '@prismicio/client' {
 			HomepageDocumentDataSlicesSlice,
 			SpeakerDocument,
 			SpeakerDocumentData,
+			SpeakerDocumentDataSlicesSlice,
 			WorkshopDocument,
 			WorkshopDocumentData,
 			AllDocumentTypes,

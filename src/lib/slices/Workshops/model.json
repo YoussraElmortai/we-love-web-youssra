@@ -28,6 +28,13 @@
             "label": "description",
             "placeholder": ""
           }
+        },
+        "linkworkshop": {
+          "type": "Link",
+          "config": {
+            "label": "linkworkshop",
+            "select": "document"
+          }
         }
       }
     }

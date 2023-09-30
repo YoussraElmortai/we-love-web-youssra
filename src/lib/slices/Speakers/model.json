@@ -27,6 +27,20 @@
             "label": "speakername",
             "placeholder": ""
           }
+        },
+        "linkspeaker": {
+          "type": "Link",
+          "config": {
+            "label": "linkspeaker",
+            "select": "document"
+          }
+        },
+        "linkworkshop": {
+          "type": "Link",
+          "config": {
+            "label": "linkworkshop",
+            "select": "document"
+          }
         }
       }
     }
