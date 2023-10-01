@@ -1,7 +1,7 @@
 <script>
     import { SliceZone } from '@prismicio/svelte'
     import { components } from '$lib/slices'
-	// export let data;
+	export let data;
 </script>
 <body>
 <header>
@@ -10,6 +10,12 @@
 
 <main>
      <input type="text" placeholder="Search..">
+
+     <article>
+    <SliceZone slices={data.slices} {components} />
+    </article>
+
+
    
 </main>
 </body>
@@ -18,9 +24,6 @@
 
 </style>
 
-<!-- <article>
-    <SliceZone slices={data.slices} {components} />
-</article> -->
 
 
 
