@@ -5,10 +5,11 @@
 </script>
 <body>
 <header>
-   
+   <img src="logo.png" alt="we love web">
 </header>
 
 <main>
+     <input type="text" placeholder="Search..">
    
 </main>
 </body>
