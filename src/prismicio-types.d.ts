@@ -69,6 +69,71 @@ export type HomepageDocument<Lang extends string = string> = prismic.PrismicDocu
 	Lang
 >;
 
+type IndexDocumentDataSlicesSlice = WorkshopsSlice;
+
+/**
+ * Content for index documents
+ */
+interface IndexDocumentData {
+	/**
+	 * Slice Zone field in *index*
+	 *
+	 * - **Field Type**: Slice Zone
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: index.slices[]
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/field#slices
+	 */
+	slices: prismic.SliceZone<IndexDocumentDataSlicesSlice>
+	/**
+	 * Meta Description field in *index*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: A brief summary of the page
+	 * - **API ID Path**: index.meta_description
+	 * - **Tab**: SEO & Metadata
+	 * - **Documentation**: https://prismic.io/docs/field#key-text
+	 */;
+	meta_description: prismic.KeyTextField;
+
+	/**
+	 * Meta Image field in *index*
+	 *
+	 * - **Field Type**: Image
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: index.meta_image
+	 * - **Tab**: SEO & Metadata
+	 * - **Documentation**: https://prismic.io/docs/field#image
+	 */
+	meta_image: prismic.ImageField<never>;
+
+	/**
+	 * Meta Title field in *index*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: A title of the page used for social media and search engines
+	 * - **API ID Path**: index.meta_title
+	 * - **Tab**: SEO & Metadata
+	 * - **Documentation**: https://prismic.io/docs/field#key-text
+	 */
+	meta_title: prismic.KeyTextField;
+}
+
+/**
+ * index document from Prismic
+ *
+ * - **API ID**: `index`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type IndexDocument<Lang extends string = string> = prismic.PrismicDocumentWithUID<
+	Simplify<IndexDocumentData>,
+	'index',
+	Lang
+>;
+
 type SpeakerDocumentDataSlicesSlice = WorkshopsSlice;
 
 /**
@@ -152,7 +217,11 @@ export type WorkshopDocument<Lang extends string = string> = prismic.PrismicDocu
 	Lang
 >;
 
-export type AllDocumentTypes = HomepageDocument | SpeakerDocument | WorkshopDocument;
+export type AllDocumentTypes =
+	| HomepageDocument
+	| IndexDocument
+	| SpeakerDocument
+	| WorkshopDocument;
 
 /**
  * Primary content in *Speakers → Items*
@@ -301,6 +370,9 @@ declare module '@prismicio/client' {
 			HomepageDocument,
 			HomepageDocumentData,
 			HomepageDocumentDataSlicesSlice,
+			IndexDocument,
+			IndexDocumentData,
+			IndexDocumentDataSlicesSlice,
 			SpeakerDocument,
 			SpeakerDocumentData,
 			SpeakerDocumentDataSlicesSlice,
