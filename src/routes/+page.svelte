@@ -6,14 +6,8 @@
 </label>
 </header>
 
-<main>
-    <div class="wrapper">
-        
-    </div>
-</main>
+
 
 <style>
-    *{
-      margin: 0; 
-    }
+
 </style>
