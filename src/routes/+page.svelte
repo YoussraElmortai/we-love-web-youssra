@@ -32,6 +32,8 @@
     .accordion{
         display: flex;
         flex-direction: row;
+        align-items: center;
+        justify-content: center;
         flex-wrap: nowrap;
         height: 10vh;
         width: 100%;
@@ -46,8 +48,6 @@
 
     .accordion span{
         font-size: 30px;
-        position: relative;
-        top: 0.3rem;
         font-family: var(--accent-font)
     }
 
