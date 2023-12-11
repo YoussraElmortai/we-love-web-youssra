@@ -38,6 +38,10 @@
     <div></div>
 </section>
 
+<footer>
+
+</footer>
+
 
 
 <style>
@@ -79,7 +83,6 @@
     .carousel img{
         border: solid 3px var(--accent-color);
         border-radius: 5px;
-
     }
 
 
@@ -122,5 +125,10 @@
         background-color: var(--Light-grey);
     }
 
+    footer{
+        background-color: var(--accent-color);
+        width: 100%;
+        height: 10vh;
+    }
 
 </style>
