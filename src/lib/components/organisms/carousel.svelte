@@ -50,6 +50,11 @@
         text-align: center;
     }
 
+    div img{
+        border: 2px solid var(--accent-color);
+        border-radius: 6px;
+    }
+
     div blockquote{
         z-index: -1;
         position: relative;
