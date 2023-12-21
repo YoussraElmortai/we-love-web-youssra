@@ -50,6 +50,7 @@
     }
 
     div blockquote{
+        z-index: -1;
         position: relative;
         top: -2rem;
         font-size: 30px;
@@ -66,11 +67,12 @@
 		left: 0;
 		width: 100%; 
 		clip-path: circle(120px at var(--x, 50%) var(--y,50%));
-        mix-blend-mode: color-dodge;
+        mix-blend-mode:color-dodge;
     }
 
 
     div img{
+        z-index: 3;
         border: solid 3px var(--accent-color);
         border-radius: 5px;
     }
