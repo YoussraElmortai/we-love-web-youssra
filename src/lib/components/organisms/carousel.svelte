@@ -34,6 +34,7 @@
     <p>“The original idea of the web was that it should be a collaborative space where you can communicate through sharing information.”</p>
         <cite>― Tim Berners-Lee</cite>
     </blockquote>
+
     </div>
 </section>
 
@@ -70,11 +71,5 @@
         mix-blend-mode:color-dodge;
     }
 
-
-    div img{
-        z-index: 3;
-        border: solid 3px var(--accent-color);
-        border-radius: 5px;
-    }
 
 </style>
