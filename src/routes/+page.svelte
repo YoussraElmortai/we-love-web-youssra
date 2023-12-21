@@ -11,3 +11,6 @@
 <WorkshopCard></WorkshopCard>
 <Footer></Footer>
 
+<style>
+
+</style>

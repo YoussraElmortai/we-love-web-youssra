@@ -5,7 +5,7 @@
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        height: 5rem;
+        height: 13vh;
         margin-bottom: 1rem;
     }
 
