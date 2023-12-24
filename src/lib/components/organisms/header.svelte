@@ -1,11 +1,15 @@
-<nav><img src="Vectorbluespiderweb.png" alt="We love web website"> <a href="/">HOME</a></nav>
+<script>
+
+</script>
+
+<nav><img src="Vectorbluespiderweb.png" alt="We love web website"> <button>MENU</button></nav>
 
 <style>
         nav{
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        height: 13vh;
+        height: 5rem;
         margin-bottom: 1rem;
     }
 
@@ -15,15 +19,18 @@
         margin: 0.3rem;
     }
 
-    nav a{
+    nav button{
         font-size: 22px;
         margin:1.5rem;
         font-weight: bold;
         text-decoration: none;
         color: var(--text-color);
+        border: none;
+        border-bottom: 2px solid white;
+        background-color: white;
     }
 
-    nav a:hover{
+    nav button:hover{
         border-bottom: 2px solid var(--accent-color);
     }
 
