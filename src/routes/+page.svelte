@@ -1,8 +1,8 @@
 <script>
-    import Header from '$lib/components/organisms/header.svelte';
-    import Carousel from '$lib/components/organisms/carousel.svelte';
+    import Header from '$lib/components/molecules/header.svelte';
+    import Carousel from '$lib/components/molecules/carousel.svelte';
     import WorkshopCard from '$lib/components/atoms/workshopCard.svelte';
-    import Footer from '$lib/components/organisms/footer.svelte';
+    import Footer from '$lib/components/molecules/footer.svelte';
 </script>
 
 
@@ -11,6 +11,3 @@
 <WorkshopCard></WorkshopCard>
 <Footer></Footer>
 
-<style>
-
-</style>
