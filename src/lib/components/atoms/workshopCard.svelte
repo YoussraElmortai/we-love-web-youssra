@@ -1,3 +1,6 @@
+<script>
+    export let data
+</script>
 <section class="card-wrapper">
     <div></div>
     <div></div>
