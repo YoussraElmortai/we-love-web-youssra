@@ -1,11 +1,12 @@
 <script>
     export let data
+    console.log(data)
+
 </script>
 <section class="card-wrapper">
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
+{#each data.workshops as workshop}
+    <div><h1>{workshop.workshopTitle}</h1></div>
+    {/each}
 </section>
 
 <style>

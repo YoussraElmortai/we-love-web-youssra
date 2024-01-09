@@ -7,8 +7,8 @@
 </script>
 
 
-<Header></Header>
-<Carousel></Carousel>
-<WorkshopCard></WorkshopCard>
-<Footer></Footer>
+<Header />
+<Carousel />
+<WorkshopCard data={data}/>
+<Footer/>
 
