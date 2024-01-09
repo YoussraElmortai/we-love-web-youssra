@@ -3,11 +3,18 @@
     console.log(data)
 
 </script>
+
 <section class="card-wrapper">
-{#each data.workshops as workshop}
-    <div><h1>{workshop.workshopTitle}</h1></div>
-    {/each}
+  {#each data.workshops as workshop}
+    <div>
+      <h1>{workshop.workshopTitle}</h1>
+      <img src="{workshop.workshopImg}" alt="{workshop.workshopImg}">
+    </div>
+  {/each}
+
+
 </section>
+
 
 <style>
      .card-wrapper{

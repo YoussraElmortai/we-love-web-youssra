@@ -5,10 +5,13 @@ export async function load() {
 	let query = gql`
 		query MyQuery {
 			workshops {
-				workshopTitle
 				workshopSlug
+				workshopTitle
 				workshopDescription {
-					text
+					html
+				}
+				workshopImg {
+					url
 				}
 			}
 		}
