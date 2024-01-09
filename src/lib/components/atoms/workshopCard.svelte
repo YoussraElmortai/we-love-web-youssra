@@ -9,6 +9,7 @@
     <div>
       <h1>{workshop.workshopTitle}</h1>
       <img src="{workshop.workshopImg}" alt="{workshop.workshopImg}">
+      <a href={workshop.workshopSlug}>hello</a>
     </div>
   {/each}
 
