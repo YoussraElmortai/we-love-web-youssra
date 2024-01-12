@@ -1,10 +1,10 @@
 import { gql } from 'graphql-request';
 import { hygraph } from '$lib/utils/hygraph.js';
 
-export async function load(slug) {
+export async function load(data) {
 	let query = gql`
 		query MyQuery {
-			workshops(where: { workshopSlug: "slug" }) {
+			workshops(where: { workshopSlug: "cssgrids" }) {
 				id
 				workshopTitle
 				workshopImg {
@@ -17,7 +17,8 @@ export async function load(slug) {
 		}
 	`;
 
-	const result = await hygraph.request(query, { slug });
+	const result = await hygraph.request(query, { data });
 	// console.log('Opgehaalde data:', result); // Console.log om de opgehaalde data te zien
+	console.log(data.params.slug);
 	return result;
 }

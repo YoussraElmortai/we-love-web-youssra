@@ -1,5 +1,5 @@
 <script>
-
+import { onMount } from "svelte";
 </script>
 
 <nav><img src="Vectorbluespiderweb.png" alt="We love web website"> <button>MENU</button></nav>

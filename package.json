@@ -24,6 +24,7 @@
 	"dependencies": {
 		"dotenv": "^16.3.1",
 		"graphql-request": "^6.1.0",
-		"gsap": "^3.12.4"
+		"gsap": "^3.12.4",
+		"split-type": "^0.3.4"
 	}
 }
