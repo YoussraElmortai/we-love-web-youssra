@@ -4,7 +4,7 @@ import { hygraph } from '$lib/utils/hygraph.js';
 export async function load() {
 	let query = gql`
 		query MyQuery {
-			workshops {
+			workshops(first: 5) {
 				workshopSlug
 				workshopTitle
 				workshopDescription {

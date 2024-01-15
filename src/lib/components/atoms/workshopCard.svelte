@@ -7,8 +7,8 @@
 	{#each data.workshops as workshop}
 		<article>
 			<h2>{workshop.workshopTitle}</h2>
-			<!-- <img src={workshop.workshopImg.url} alt="{workshop.workshopTitle}"> -->
-			<a href={workshop.workshopSlug}>Learn more</a>
+			<a href={workshop.workshopSlug}>Learn more</a>	
+			<img src={workshop.workshopImg.url} alt="{workshop.workshopTitle}">
 		</article>
 	{/each}
 </section>
@@ -23,6 +23,14 @@
 		padding: 2rem;
 	}
 
+	.card-wrapper h2{
+		position: relative;
+		color: aliceblue;
+		height: 7.5rem;
+		z-index: 3;
+		padding: 0.3rem;
+	}
+
 	.card-wrapper article {
 		height: 15rem;
 		width: 10rem;
@@ -32,14 +40,27 @@
 		overflow: hidden;
 	}
 
+	.card-wrapper img{
+		position: relative;
+		height: 15rem;
+		width: 10rem;
+		top: -9rem;
+	}
+
 	a {
 		position: relative;
 		text-decoration: none;
 		font-size: 18px;
 		color: white;
 		background-color: var(--accent-color);
-		padding: 0.5rem;
-		top: 1rem;
-		z-index: 5;
+		border: 2px solid var(--accent-color);
+		padding: 0.4rem;
+		top: 5rem;
+		left: 2.5rem;
+		z-index: 2;
+	}
+
+	a:hover{
+		border: 2px solid aliceblue;
 	}
 </style>

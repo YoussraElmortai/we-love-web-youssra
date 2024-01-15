@@ -5,5 +5,21 @@
      console.log(data)
 </script>
 <Header/>
-  <h1>{data.workshops.workshopTitle}</h1>
+  <h1><span>*</span>{data.workshops.workshopTitle}</h1>
+  <p>{@html data.workshops.workshopDescription.html}</p>
 <Footer/>
+
+<style>
+
+  h1{
+    font-size: 50px;
+    padding: 1rem;
+  }
+  span{
+    color: var(--accent-color);
+  }
+  
+  p{
+    padding: 1rem;
+  }
+</style>
