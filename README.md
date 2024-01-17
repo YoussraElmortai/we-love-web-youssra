@@ -2,7 +2,7 @@
 
 
 <h2>✨ About ✨ </h2>
-Explore the magical world of talks and workshops at FDND with our incredible WeLoveWeb app! Whether you missed a workshop or crave the excitement of both new and past sessions, our app is your gateway. Embark on this epic web journey with us and join the fellowship of web enthusiasts! 🧙‍♂️✨
+ 🧙‍♂️✨
 
 <h2>🌏The website🌏</h2>
 
