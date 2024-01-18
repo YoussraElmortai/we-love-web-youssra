@@ -16,12 +16,12 @@ import { onMount } from "svelte";
     nav img{
         width: auto;
         height: 4rem;
-        margin: 0.3rem;
+        margin: 0;
     }
 
     nav button{
         font-size: 22px;
-        margin:1.5rem;
+        margin: 1.5rem;
         font-weight: bold;
         text-decoration: none;
         color: var(--text-color);
