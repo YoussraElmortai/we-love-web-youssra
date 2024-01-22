@@ -12,7 +12,6 @@
 		</article>
 	{/each}
 </section>
-
 <style>
 	.card-wrapper {
 		display: flex;

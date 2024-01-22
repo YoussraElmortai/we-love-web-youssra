@@ -6,8 +6,9 @@
 </script>
 
 <Header/>
-  <h1><span>*</span>{data.workshops.workshopTitle}</h1>
-  <p>{@html data.workshops.workshopDescription.html}</p>
+
+  <!-- <h1><span>*</span>{data.workshops.workshopTitle}</h1>
+  <p>{@html data.workshops.workshopDescription.html}</p> -->
   <div class="stripe"></div>
 <Footer/>
 
